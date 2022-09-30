@@ -1,0 +1,21 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+@import "styles/button";
+@import "styles/card";
+@import "styles/link";
+
+:root {
+  --color-alpha: #eee;
+  --color-beta: #ffb535;
+  --color-gamma: #363738;
+  --color-delta: #fff;
+  --color-epsilon: rgba(#333, 0.9);
+  --color-zeta: #ccc;
+
+  --box-shadow-primary: 1px 1px 3px 0 rgb(0 0 0 / 20%);
+  --box-shadow-secondary: 1px 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+body{
+  background: var(--color-alpha);
+}

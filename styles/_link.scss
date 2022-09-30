@@ -1,0 +1,14 @@
+.nb-link {
+  color: var(--color-gamma);
+  text-decoration: none;
+  transition: 200ms ease-in-out;
+
+  i {
+    color: var(--color-beta);
+  }
+
+  &:hover {
+    color: var(--color-beta);
+    text-decoration: none;
+  }
+}
