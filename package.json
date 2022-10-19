@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "sanity": "npm start --prefix @sanity",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
