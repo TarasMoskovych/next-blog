@@ -38,6 +38,11 @@ class BlogService {
     return await this.client.fetch(`*[_type == 'blog']{ ${this.query} }`);
   }
 
+  public async getAllSlugs(): Promise<string[]> {
+    return await this.client.fetch(`*[_type == 'blog']{ 'slug': slug.current }`)
+      .then((response: Array<{slug: string}>) => response.map(({ slug }) => slug));
+  }
+
   public async getBlogBySlag(slug: string): Promise<IBlog> {
     return await this.client
       .fetch(`*[_type == 'blog' && slug.current == $slug]{ ${this.query} }`, { slug })
