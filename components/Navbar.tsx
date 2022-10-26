@@ -13,7 +13,7 @@ const Navbar = () => {
         </Link>
       </BootsrapNavbar.Brand>
       <BootsrapNavbar.Toggle aria-controls="basic-navbar-nav" />
-      <BootsrapNavbar.Collapse id="basic-navbar-nav">
+      {/* <BootsrapNavbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link
             as={() =>
@@ -23,7 +23,7 @@ const Navbar = () => {
             }
           />
         </Nav>
-      </BootsrapNavbar.Collapse>
+      </BootsrapNavbar.Collapse> */}
     </BootsrapNavbar>
   );
 };

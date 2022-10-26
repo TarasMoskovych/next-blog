@@ -2,15 +2,15 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router';
 import { Row, Col } from 'react-bootstrap';
 import PageLayout from 'components/PageLayout';
-import CardItem from 'components/CardItem';
-import CardListItem from 'components/CardListItem';
+import BlogCard from 'components/BlogCard';
+import BlogListItem from 'components/BlogListItem';
 import blogService, { IBlog } from 'services/blog.service';
 
 type Props = {
   blogs: IBlog[];
 };
 
-const Home = ({ blogs }: Props) => {
+const HomePage = ({ blogs }: Props) => {
   const router = useRouter();
   const navigateToBlogDetail = ({ slug }: IBlog) => {
     router.push(`/blogs/${slug}`);
@@ -27,7 +27,7 @@ const Home = ({ blogs }: Props) => {
         <Row className="mb-5">
           {blogs.map((blog: IBlog) =>
             <Col key={blog.slug} md="4">
-              <CardItem
+              <BlogCard
                 blog={blog}
                 navigateToBlogDetail={navigateToBlogDetail}
               />
@@ -52,4 +52,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Home;
+export default HomePage;

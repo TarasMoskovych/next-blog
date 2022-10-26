@@ -5,7 +5,7 @@ type Props = {
   navigateToBlogDetail: (blog: IBlog) => void;
 }
 
-const CardItem = ({ blog, navigateToBlogDetail }: Props) => {
+const BlogCard = ({ blog, navigateToBlogDetail }: Props) => {
   const backgroundImage = `var(--card-img-hovered-overlay), url(${blog.imageUrl})`;
 
   return (
@@ -33,4 +33,4 @@ const CardItem = ({ blog, navigateToBlogDetail }: Props) => {
   );
 };
 
-export default CardItem;
+export default BlogCard;
