@@ -1,4 +1,4 @@
-export default () => {
+const CardListItem = () => {
   const backgroundImage = `url('http://demo.yolotheme.com/html/motor/images/demo/demo_131.jpg')`;
 
   return (
@@ -31,3 +31,5 @@ export default () => {
     </article>
   );
 };
+
+export default CardListItem;

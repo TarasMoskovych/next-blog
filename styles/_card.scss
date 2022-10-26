@@ -106,7 +106,6 @@
 .nb-card-item {
   align-self: flex-start;
   position: relative;
-  width: 325px;
   min-width: 275px;
   margin: 1.25rem 0.75rem;
   background: white;
@@ -192,6 +191,16 @@
   &__creator {
     padding-bottom: 0.75rem;
     transition: all 250ms ease-in-out;
+
+    img {
+      border-radius: 50%;
+      height: 24px;
+      margin-left: 5px;
+      object-fit: cover;
+      position: relative;
+      top: -2px;
+      width: 24px;
+    }
   }
 
   &:hover {

@@ -4,12 +4,12 @@ import Navbar from 'components/Navbar';
 import Footer from 'components/Footer';
 
 type Props = {
-  children: JSX.Element,
-  className?: string,
-  title?: string,
+  children: JSX.Element;
+  className?: string;
+  title?: string;
 };
 
-export default ({ children, className, title = 'Next Blog' }: Props) => {
+const PageLayout = ({ children, className, title = 'Next Blog' }: Props) => {
   return (
     <>
       <Head>
@@ -25,3 +25,5 @@ export default ({ children, className, title = 'Next Blog' }: Props) => {
     </>
   );
 };
+
+export default PageLayout;

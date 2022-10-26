@@ -1,23 +1,31 @@
-import { Navbar, Nav } from 'react-bootstrap';
+import Link from 'next/link'
+import { Navbar as BootsrapNavbar, Nav } from 'react-bootstrap';
 
-export default () => {
+const Navbar = () => {
   return (
-    <Navbar
+    <BootsrapNavbar
       className="fj-navbar fj-nav-base"
       bg="transparent"
       expand="lg" >
-      <Navbar.Brand className="fj-navbar-brand">
-        <a href="#">Author</a>
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <BootsrapNavbar.Brand className="fj-navbar-brand">
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+      </BootsrapNavbar.Brand>
+      <BootsrapNavbar.Toggle aria-controls="basic-navbar-nav" />
+      <BootsrapNavbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link
-            className="fj-navbar-item fj-navbar-link"
-            href='/'>Home
-          </Nav.Link>
+            as={() =>
+              <Link href="/">
+                <a className="fj-navbar-item fj-navbar-link">Home</a>
+              </Link>
+            }
+          />
         </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+      </BootsrapNavbar.Collapse>
+    </BootsrapNavbar>
   );
 };
+
+export default Navbar;
