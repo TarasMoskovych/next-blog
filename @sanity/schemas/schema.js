@@ -53,6 +53,38 @@ export default createSchema({
           validation: Rule => Rule.required(),
         },
         {
+          name: 'content',
+          type: 'array',
+          title: 'Content',
+          of: [
+            {
+              type: 'block',
+            },
+            {
+              type: 'image',
+              fields: [
+                {
+                  type: 'text',
+                  name: 'alt',
+                  title: 'Description',
+                  options: {
+                    isHighlighted: true,
+                  },
+                },
+              ],
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              type: 'code',
+              options: {
+                withFilename: true,
+              },
+            },
+          ],
+        },
+        {
           name: 'createdAt',
           type: 'date',
           title: 'Date',
@@ -68,7 +100,7 @@ export default createSchema({
           name: 'slug',
           type: 'slug',
           title: 'Slug (URL)',
-          validation: Rule => Rule.required().min(5),
+          validation: Rule => Rule.required(),
         },
       ],
     },
