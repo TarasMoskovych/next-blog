@@ -1,3 +1,4 @@
+import { PortableTextBlock } from '@portabletext/types'
 import sanityClient, { ClientConfig, SanityClient }  from '@sanity/client';
 
 export interface IBlog {
@@ -10,6 +11,7 @@ export interface IBlog {
   slug: string;
   subtitle: string;
   title: string;
+  content?: PortableTextBlock;
 }
 
 let blogService: BlogService | undefined;
@@ -45,7 +47,7 @@ class BlogService {
 
   public async getBlogBySlag(slug: string): Promise<IBlog> {
     return await this.client
-      .fetch(`*[_type == 'blog' && slug.current == $slug]{ ${this.query} }`, { slug })
+      .fetch(`*[_type == 'blog' && slug.current == $slug]{ ${this.query} content[]{ ..., 'asset': asset-> } }`, { slug })
       .then((response: IBlog[]) => response?.[0]);
   }
 }
