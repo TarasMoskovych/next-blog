@@ -1,0 +1,12 @@
+.nb-home-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 25px;
+  width: calc(100% - 50px);
+
+  &__list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  }
+}

@@ -1,0 +1,21 @@
+.nb-header {
+  background-color: var(--color-delta);
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 16%);
+  padding: 10px 25px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+  &__logo-wrapper {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+  }
+
+  &__title {
+    font-size: 1.9rem;
+    font-weight: 500;
+    margin-left: 10px;
+    padding: 0;
+  }
+}
