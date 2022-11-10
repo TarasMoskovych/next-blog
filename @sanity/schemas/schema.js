@@ -51,6 +51,9 @@ export default createSchema({
           type: 'image',
           title: 'Image',
           validation: Rule => Rule.required(),
+          options: {
+            hotspot: true,
+          },
         },
         {
           name: 'content',
@@ -68,6 +71,29 @@ export default createSchema({
                   name: 'alt',
                   title: 'Description',
                   options: {
+                    isHighlighted: true,
+                  },
+                },
+                {
+                  type: 'string',
+                  name: 'position',
+                  title: 'Position',
+                  options: {
+                    list: [
+                      {
+                        title: 'Center',
+                        value: 'center',
+                      },
+                      {
+                        title: 'Left',
+                        value: 'left',
+                      },
+                      {
+                        title: 'Right',
+                        value: 'right',
+                      },
+                    ],
+                    layout: 'radio',
                     isHighlighted: true,
                   },
                 },

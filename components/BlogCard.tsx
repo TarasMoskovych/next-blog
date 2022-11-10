@@ -1,4 +1,4 @@
-import { IBlog } from 'services/blog.service';
+import { IBlog, getImageUrl } from 'services/blog.service';
 
 type Props = {
   blog: IBlog;
@@ -6,7 +6,7 @@ type Props = {
 }
 
 const BlogCard = ({ blog, navigateToBlogDetail }: Props) => {
-  const backgroundImage = `var(--card-img-hovered-overlay), url(${blog.imageUrl})`;
+  const backgroundImage = `var(--card-img-hovered-overlay), url(${getImageUrl(blog.imageSource).height(300).crop('center').fit('clip').url()})`;
 
   return (
     <article onClick={() => navigateToBlogDetail(blog)} className="nb-card-item">
