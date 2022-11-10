@@ -1,6 +1,6 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import HighlightCode from 'components/HighlightCode';
-import { IBlog, getImageUrl } from 'services/blog.service';
+import HighlightCode from 'src/components/HighlightCode';
+import { IBlog, getImageUrl } from 'src/services/blog.service';
 
 type Props = {
   blog: IBlog;

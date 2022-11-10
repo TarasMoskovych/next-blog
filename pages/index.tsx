@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router';
 import { Row, Col } from 'react-bootstrap';
-import PageLayout from 'components/PageLayout';
-import BlogCard from 'components/BlogCard';
-import BlogListItem from 'components/BlogListItem';
-import blogService, { IBlog } from 'services/blog.service';
+import PageLayout from 'src/components/PageLayout';
+import BlogCard from 'src/components/BlogCard';
+import BlogListItem from 'src/components/BlogListItem';
+import blogService, { IBlog } from 'src/services/blog.service';
 
 type Props = {
   blogs: IBlog[];

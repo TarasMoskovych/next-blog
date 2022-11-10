@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { Row, Col } from 'react-bootstrap'
-import PageLayout from 'components/PageLayout';
-import BlogDetail from 'components/BlogDetail';
-import blogService, { IBlog } from 'services/blog.service';
+import PageLayout from 'src/components/PageLayout';
+import BlogDetail from 'src/components/BlogDetail';
+import blogService, { IBlog } from 'src/services/blog.service';
 
 type Props = {
   blog: IBlog;
