@@ -1,6 +1,5 @@
-import { Container } from 'react-bootstrap';
 import Head from 'next/head';
-import Navbar from 'src/components/Navbar';
+import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 
 type Props = {
@@ -15,13 +14,11 @@ const PageLayout = ({ children, className, title = 'Next Blog' }: Props) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <Container>
-        <Navbar />
-        <div className={`page-wrapper ${className || ''}`}>
+      <Header />
+        <main className={`nb-page-wrapper ${className || ''}`}>
           {children}
-        </div>
-        <Footer />
-      </Container>
+        </main>
+      <Footer />
     </>
   );
 };

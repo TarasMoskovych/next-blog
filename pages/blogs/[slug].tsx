@@ -1,5 +1,4 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { Row, Col } from 'react-bootstrap'
 import PageLayout from 'src/components/PageLayout';
 import BlogDetail from 'src/components/BlogDetail';
 import blogService, { IBlog } from 'src/services/blog.service';
@@ -10,14 +9,10 @@ type Props = {
 
 const BlogDetailPage = ({ blog }: Props) => {
   return (
-    <PageLayout className="blog-detail-page" title={blog.title}>
-      <Row>
-        <Col md={{ span: 10, offset: 1 }}>
-          <BlogDetail
-            blog={blog}
-          />
-        </Col>
-      </Row>
+    <PageLayout className='nb-detail-page' title={blog.title}>
+      <BlogDetail
+        blog={blog}
+      />
     </PageLayout>
   );
 };

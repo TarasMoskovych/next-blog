@@ -1,8 +1,7 @@
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router';
-import { Row, Col } from 'react-bootstrap';
 import PageLayout from 'src/components/PageLayout';
-import BlogCard from 'src/components/BlogCard';
+import Card from 'src/components/Card';
 import BlogListItem from 'src/components/BlogListItem';
 import blogService, { IBlog } from 'src/services/blog.service';
 
@@ -17,26 +16,16 @@ const HomePage = ({ blogs }: Props) => {
   };
 
   return (
-    <PageLayout>
-      <div>
-        <Row>
-          <Col md="6">
-            Placeholder
-          </Col>
-        </Row>
-        <Row className="mb-5">
-          {blogs.map((blog: IBlog) =>
-            <Col key={blog.slug} md="4">
-              <BlogCard
-                blog={blog}
-                navigateToBlogDetail={navigateToBlogDetail}
-              />
-            </Col>
-          )}
-          {/* <Col md="6">
-            <CardListItem />
-          </Col> */}
-        </Row>
+    <PageLayout className='nb-page-content nb-home-page'>
+      <div className='nb-home-page__list'>
+        {blogs.map((blog: IBlog) =>
+          <div key={blog.slug} className='nb-home-page__list-item'>
+            <Card
+              blog={blog}
+              navigateToBlogDetail={navigateToBlogDetail}
+            />
+          </div>
+        )}
       </div>
     </PageLayout>
   );
