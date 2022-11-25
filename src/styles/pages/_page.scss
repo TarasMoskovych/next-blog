@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -5,7 +11,7 @@ body {
 
 body {
   background: var(--color-alpha);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
 
   & > div {
@@ -34,7 +40,7 @@ ul {
   }
 
   &-content {
-    max-width: 1000px;
+    max-width: 1300px;
     padding: 0 25px;
     margin: 0 auto;
   }

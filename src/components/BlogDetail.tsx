@@ -1,6 +1,9 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
+import { PortableTextBlock } from '@portabletext/types'
+import { Parallax } from 'react-parallax';
 import HighlightCode from 'src/components/HighlightCode';
 import { IBlog, getImageUrl } from 'src/services/blog.service';
+import { formatDate, toHashtag } from 'src/utils';
 
 type Props = {
   blog: IBlog;
@@ -27,8 +30,8 @@ const portableTextComponents: PortableTextComponents = {
       }
 
       return (
-        <div className="" style={styles}>
-          <img alt={alt} src={getImageUrl(asset).height(300).fit('max').url()} style={{ maxWidth: "100%" }} />
+        <div className='' style={styles}>
+          <img alt={alt} src={getImageUrl(asset).height(300).fit('max').url()} style={{ maxWidth: '100%', maxHeight: 350 }} />
           {alt &&
             <p>{alt}</p>
           }
@@ -36,40 +39,72 @@ const portableTextComponents: PortableTextComponents = {
       );
     },
   },
+  marks: {
+    link: ({ children, value }) => {
+      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
+
+      return (
+        <a href={value.href} rel={rel} target='_blank'>
+          {children}
+        </a>
+      );
+    },
+  },
+  block: {
+    h2: ({ children }) => {
+      const anchor = toHashtag(children as string[]);
+
+      return (
+        <h2 className='with-link' id={anchor.slice(1)}>
+          {children}
+          <a href={anchor}>
+            <span className="material-symbols-outlined">link</span>
+          </a>
+        </h2>
+      );
+    },
+  },
 };
 
 const BlogDetail = ({ blog }: Props) => {
   return (
-    <div>
-      <div className="blog-detail-header">
-        <p className="lead mb-0">
-          {blog.createdBy?.photoUrl &&
-            <img
-              src={getImageUrl(blog.createdBy.photoUrl).height(100).url()}
-              className="rounded-circle mr-3"
-              height="50px"
-              width="50px"
-              alt="avatar"
+    <div className='nb-blog-detail'>
+      <Parallax
+        bgImage={getImageUrl(blog.imageSource).url()}
+        bgImageAlt={blog.title}
+        strength={-100}
+        bgClassName='nb-blog-detail__cover-image'
+      >
+        <div style={{ height: 400 }}>
+          <h2 className='nb-blog-detail__title'>{blog.title}</h2>
+        </div>
+      </Parallax>
+      <div className='nb-page-content'>
+        <div className='nb-blog-detail__content-wrapper'>
+          <h2 className='nb-blog-detail__subtitle'>{blog.subtitle}</h2>
+          <div className='nb-blog-detail__created-by'>
+            <div className='nb-blog-detail__author'>
+              <img
+                src={getImageUrl(blog.createdBy.photoUrl).height(36).width(36).url()}
+                className='nb-blog-detail__author-image'
+                alt='avatar'
+              />
+              <p className='nb-blog-detail__author-text'>
+                {blog.createdBy?.displayName || 'Admin'}
+              </p>
+            </div>
+            <div className='nb-blog-detail__date'>
+              {formatDate(blog.createdAt)}
+            </div>
+          </div>
+          <div className='nb-blog-detail__content'>
+            <PortableText
+              value={blog.content as PortableTextBlock}
+              components={portableTextComponents}
             />
-          }
-          {blog.createdBy?.displayName || 'Admin'}
-          {', '} {blog.createdAt}
-        </p>
-        <h1 className="font-weight-bold blog-detail-header-title mb-0">{blog.title}</h1>
-        <h2 className="blog-detail-header-subtitle mb-3">{blog.subtitle}</h2>
-        <img
-          className="img-fluid rounded"
-          src={getImageUrl(blog.imageSource).maxHeight(600).url()}
-          alt=""
-        />
+          </div>
+        </div>
       </div>
-      <hr />
-      {blog.content &&
-        <PortableText
-          value={blog.content}
-          components={portableTextComponents}
-        />
-      }
     </div>
   );
 };

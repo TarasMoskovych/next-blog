@@ -1,9 +1,15 @@
 .nb-home-page {
-  padding-top: 110px;
+  padding-top: 105px;
 
   &__list {
-    display: grid;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+
+    &-item {
+      flex: 1 1 calc(25% - 20px);
+      min-width: 275px;
+    }
   }
 }
