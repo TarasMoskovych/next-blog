@@ -9,6 +9,19 @@ type Props = {
   blog: IBlog;
 }
 
+const LinkableHeader = ({ children }: any) => {
+  const anchor = toHashtag(children as string[]);
+
+  return (
+    <h2 className='with-link' id={anchor.slice(1)}>
+      {children}
+      <a href={anchor} rel='noreferrer'>
+        <span className="material-symbols-outlined">link</span>
+      </a>
+    </h2>
+  );
+};
+
 const portableTextComponents: PortableTextComponents = {
   types: {
     code: ({ value: { language, code, filename } }) => {
@@ -41,28 +54,16 @@ const portableTextComponents: PortableTextComponents = {
   },
   marks: {
     link: ({ children, value }) => {
-      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
-
       return (
-        <a href={value.href} rel={rel} target='_blank'>
+        <a href={value.href} rel='noreferrer noopener' target='_blank'>
           {children}
         </a>
       );
     },
   },
   block: {
-    h2: ({ children }) => {
-      const anchor = toHashtag(children as string[]);
-
-      return (
-        <h2 className='with-link' id={anchor.slice(1)}>
-          {children}
-          <a href={anchor}>
-            <span className="material-symbols-outlined">link</span>
-          </a>
-        </h2>
-      );
-    },
+    h1: LinkableHeader,
+    h2: LinkableHeader,
   },
 };
 
@@ -81,7 +82,6 @@ const BlogDetail = ({ blog }: Props) => {
       </Parallax>
       <div className='nb-page-content'>
         <div className='nb-blog-detail__content-wrapper'>
-          <h2 className='nb-blog-detail__subtitle'>{blog.subtitle}</h2>
           <div className='nb-blog-detail__created-by'>
             <div className='nb-blog-detail__author'>
               <img

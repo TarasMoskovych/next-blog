@@ -19,10 +19,6 @@
     transform: translate(-50%,-50%);
   }
 
-  &__subtitle {
-    font-weight: 600;
-  }
-
   &__content-wrapper {
     background-color: var(--color-delta);
     box-shadow: var(--box-shadow-primary);
@@ -54,8 +50,6 @@
   }
 
   &__content {
-    margin-top: 30px;
-
     h1,
     h2,
     h3,

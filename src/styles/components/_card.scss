@@ -105,13 +105,14 @@
 
 .nb-card {
   align-self: flex-start;
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-  border-radius: 5px;
-  position: relative;
-  // min-width: 275px;
   background: white;
-  transition: all 300ms ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
   height: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+  transition: all 300ms ease-in-out;
 
   &__link {
     color: var(--color-gamma);
@@ -147,7 +148,6 @@
 
   &__info {
     padding: 0.75rem 1.25rem;
-    position: relative;
     transition: all 200ms ease-in-out;
   }
 
@@ -195,14 +195,30 @@
   }
 
   &__subtitle {
+    min-height: 80px;
     padding-bottom: 0.75rem;
     transition: all 350ms ease-in-out;
     z-index: 10;
   }
 
   &__creator {
-    padding-bottom: 0.75rem;
+    background-color: white;
+    bottom: 0;
+    position: absolute;
+    padding: 0 0 15px;
     transition: all 250ms ease-in-out;
+    width: 100%;
+    z-index: 1;
+
+    &::after {
+      background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.85) 85%,#fff 100%);
+      bottom: 100%;
+      content: "";
+      left: 0;
+      height: 60px;
+      position: absolute;
+      width: 100%;
+    }
 
     img {
       border-radius: 50%;
@@ -225,8 +241,8 @@
         &--hovered {
           --card-img-hovered-overlay: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.65)
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.2)
           );
           border-radius: 5px;
           height: 100%;
@@ -245,7 +261,7 @@
       &__title,
       &__subtitle {
         color: var(--color-alpha);
-        transform: translate(0,40px);
+        transform: translate(0, -240px);
       }
     }
   }
