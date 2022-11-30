@@ -6,9 +6,10 @@ type Props = {
   children: JSX.Element;
   className?: string;
   title?: string;
+  scrollProgress?: boolean;
 };
 
-const PageLayout = ({ children, className, title = 'Next Blog' }: Props) => {
+const PageLayout = ({ children, className, title = 'Next Blog', scrollProgress = false }: Props) => {
   return (
     <>
       <Head>
@@ -18,7 +19,7 @@ const PageLayout = ({ children, className, title = 'Next Blog' }: Props) => {
         <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap' rel='stylesheet' />
         <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=swap' rel='stylesheet' />
       </Head>
-      <Header />
+      <Header scrollProgress={scrollProgress} />
       <main className={`nb-page-wrapper ${className || ''}`}>
         {children}
       </main>

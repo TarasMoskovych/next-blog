@@ -1,0 +1,18 @@
+.nb-scroll-progress {
+  &__container {
+    background: rgba(#3F51B5, 0.3);
+    bottom: 0;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+  }
+
+  &__bar {
+    height: 3px;
+    background: #3F51B5;
+    width: 0;
+    transition: 0.3s;
+  }
+}

@@ -1,3 +1,16 @@
 .nb-detail-page {
   padding-top: 65px;
+
+  @media screen and (max-width: 576px) {
+    .nb-page {
+      &-content {
+        max-width: 100%;
+        padding: 0;
+
+        & > div {
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }

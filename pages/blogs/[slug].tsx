@@ -9,7 +9,7 @@ type Props = {
 
 const BlogDetailPage = ({ blog }: Props) => {
   return (
-    <PageLayout className='nb-detail-page' title={blog.title}>
+    <PageLayout className='nb-detail-page' title={blog.title} scrollProgress={true}>
       <BlogDetail
         blog={blog}
       />
