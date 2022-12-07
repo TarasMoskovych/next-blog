@@ -2,25 +2,14 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { PortableTextBlock } from '@portabletext/types'
 import { Parallax } from 'react-parallax';
 import HighlightCode from 'src/components/HighlightCode';
+import LinkableHeader from 'src/components/LinkableHeader';
+import PortableImage from 'src/components/PortableImage';
 import { IBlog, getImageUrl } from 'src/services/blog.service';
-import { formatDate, toHashtag } from 'src/utils';
+import { formatDate } from 'src/utils';
 
 type Props = {
   blog: IBlog;
 }
-
-const LinkableHeader = ({ children }: any) => {
-  const anchor = toHashtag(children as string[]);
-
-  return (
-    <h2 className='with-link' id={anchor.slice(1)}>
-      {children}
-      <a href={anchor} rel='noreferrer'>
-        <span className="material-symbols-outlined">link</span>
-      </a>
-    </h2>
-  );
-};
 
 const portableTextComponents: PortableTextComponents = {
   types: {
@@ -31,26 +20,7 @@ const portableTextComponents: PortableTextComponents = {
         </HighlightCode>
       );
     },
-    image: ({ value: { alt, asset, position = 'center' } }) => {
-      const styles = {};
-
-      if (position === 'left') {
-        Object.assign(styles, { float: position, marginRight: '15px' });
-      } else if (position === 'right') {
-        Object.assign(styles, { float: position, marginLeft: '15px' });
-      } else {
-        Object.assign(styles, { textAlign: position });
-      }
-
-      return (
-        <div className='' style={styles}>
-          <img alt={alt} src={getImageUrl(asset).height(300).fit('max').url()} style={{ maxWidth: '100%', maxHeight: 350 }} />
-          {alt &&
-            <p>{alt}</p>
-          }
-        </div>
-      );
-    },
+    image: PortableImage,
   },
   marks: {
     link: ({ children, value }) => {
