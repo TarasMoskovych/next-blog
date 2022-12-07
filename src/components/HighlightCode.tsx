@@ -11,9 +11,11 @@ const HighlightCode = ({ children, language, filename }: Props) => {
   const code = createRef<HTMLElement>();
 
   useEffect(() => {
-    highlight.configure({ ignoreUnescapedHTML: true });
-    highlight.highlightElement(code.current as HTMLElement);
-  }, []);
+    if (code.current) {
+      highlight.configure({ ignoreUnescapedHTML: true });
+      highlight.highlightElement(code.current);
+    }
+  }, [code]);
 
   return (
     <pre>

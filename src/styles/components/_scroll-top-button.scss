@@ -1,0 +1,43 @@
+.nb-scroll-top-button {
+  background: rgba(#3F51B5, 0.9);
+  border-radius: 50%;
+  border: 0;
+  bottom: 20px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+  color: white;
+  cursor: pointer;
+  height: 50px;
+  outline: none;
+  position: fixed;
+  right: 15px;
+  transform: scale(0);
+  transition: all .3s cubic-bezier(.25,.8,.25,1);
+  width: 50px;
+  z-index: 25;
+
+  &__icon {
+    color: #fff;
+    font-weight: 600;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  &--visible {
+    transform: scale(1);
+
+    &:hover,
+    &:active {
+      background: #3F51B5;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(.9);
+    }
+  }
+}

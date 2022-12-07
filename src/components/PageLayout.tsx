@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
+import ScrollTopButton from 'src/components/ScrollTopButton';
 
 type Props = {
   children: JSX.Element;
@@ -22,6 +23,7 @@ const PageLayout = ({ children, className, title = 'Next Blog', scrollProgress =
       <Header scrollProgress={scrollProgress} />
       <main className={`nb-page-wrapper ${className || ''}`}>
         {children}
+        <ScrollTopButton />
       </main>
       <Footer />
     </>

@@ -13,7 +13,7 @@ const Header = ({ scrollProgress }: Props) => {
       <div className='nb-header__wrapper'>
         <Link href="/">
           <div className='nb-header__logo-wrapper'>
-            <Image src={logo} width={'42px'} height={'42px'} />
+            <Image src={logo} width={'42px'} height={'42px'} alt=''/>
             <h1 className='nb-header__title'>Next Blog</h1>
           </div>
         </Link>
