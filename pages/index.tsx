@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router';
 import PageLayout from 'src/components/PageLayout';
 import Card from 'src/components/Card';
-import BlogListItem from 'src/components/BlogListItem';
 import blogService, { IBlog } from 'src/services/blog.service';
 
 type Props = {

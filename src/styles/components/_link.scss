@@ -1,14 +1,11 @@
-.nb-link {
-  color: var(--color-gamma);
+.nb-link,
+a {
+  color: #3F51B5;
   text-decoration: none;
   transition: 200ms ease-in-out;
 
-  i {
-    color: var(--color-beta);
-  }
-
-  &:hover {
-    color: var(--color-beta);
-    text-decoration: none;
+  &:hover,
+  &:focus {
+    color: #0074de;
   }
 }

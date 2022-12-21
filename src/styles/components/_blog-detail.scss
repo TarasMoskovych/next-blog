@@ -66,7 +66,7 @@
         span {
           font-size: 2rem;
           position: relative;
-          top: 8px;
+          top: 9px;
         }
 
         &:hover {
@@ -79,9 +79,26 @@
       margin: 10px 0;
     }
 
-    code {
+    blockquote {
+      background-color: #F2F3F5;
       border-radius: 8px;
+      margin: 0;
+      padding: 20px;
+    }
+
+    code {
       font-size: 1rem;
+      border-radius: 8px;
+
+      &:not(.hljs) {
+        background-color: #F2F3F5;
+        border-radius: 0;
+      }
+    }
+
+    ul {
+      list-style: inside;
+      padding-left: 20px;
     }
   }
 }
