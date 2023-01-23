@@ -43,7 +43,7 @@ class BlogService {
   }
 
   public async getAllBlogs(): Promise<IBlog[]> {
-    return await this.client.fetch(`*[_type == 'blog']{ ${this.query} }`);
+    return await this.client.fetch(`*[_type == 'blog']{ ${this.query} } | order(createdAt desc)`);
   }
 
   public async getAllSlugs(): Promise<string[]> {
