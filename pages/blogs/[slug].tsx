@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       blog: blog || null,
     },
+    revalidate: 120,
   };
 };
 
@@ -32,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: slugs.map((slug: string) => ({ params: { slug } })),
-    fallback: false,
+    fallback: 'blocking',
   }
 };
 
