@@ -1,6 +1,6 @@
 .nb-footer {
-  background-color: var(--color-delta);
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 16%);
+  background-color: var(--global-background-secondary-color);
+  box-shadow: var(--footer-box-shadow);
   flex-shrink: 0;
   margin-top: 35px;
   padding: 10px 25px;
@@ -16,14 +16,18 @@
       &:hover,
       &:focus {
         svg {
-          fill: #555;
+          fill: var(--svg-hover-color);
+          transition: 0.3s;
         }
       }
 
       svg {
-        fill: var(--color-eta);
-        transition: 0.3s;
+        fill: var(--global-text-inversed-color);
       }
     }
+  }
+
+  &__copyright {
+    color: var(--global-text-inversed-color);
   }
 }

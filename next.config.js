@@ -7,6 +7,10 @@ const nextConfig = {
     SANITY_DATASET_NAME,
     SANITY_PROJECT_ID,
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };
 
 module.exports = nextConfig;

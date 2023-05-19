@@ -4,20 +4,39 @@
   box-sizing: border-box;
 }
 
-html,
 body {
-  height: 100%;
-}
-
-body {
-  background: var(--color-alpha);
   font-family: "Open Sans", sans-serif;
   margin: 0;
 
-  & > div {
+  .root {
+    background: var(--global-background-color);
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+  }
+
+  .theme-clipper {
+    border-radius: 100%;
+    height: 0rem;
+    position: fixed;
+    right: 3rem;
+    top: 3rem;
+    width: 0rem;
+    z-index: 3;
+
+    .root {
+      position: fixed;
+    }
+
+    &.animated {
+      animation: open 1.5s ease-in;
+    }
   }
 }
 
@@ -44,5 +63,23 @@ ul {
     padding: 0 25px;
     margin: 0 auto;
     transition: .3s;
+  }
+}
+
+@keyframes open {
+  0% {
+    top: 3rem;
+    right: 3rem;
+    width: 0rem;
+    height: 0rem;
+    clip-path: circle(0rem at center);
+  }
+
+  100% {
+    top: calc(-250vmax + 3rem);
+    right: calc(-250vmax + 3rem);
+    width: 500vmax;
+    height: 500vmax;
+    clip-path: circle(100% at center);
   }
 }

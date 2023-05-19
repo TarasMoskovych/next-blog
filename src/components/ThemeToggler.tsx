@@ -1,16 +1,19 @@
-import { useThemeToggle } from 'src/hooks';
+import { useTheme } from 'src/context/ThemeContext';
 
 const ThemeToggler = () => {
-  const { darkMode, onThemeChange } = useThemeToggle();
+  const { toggleTheme, darkMode, loaded } = useTheme();
 
   return (
     <div className='nb-theme-toggler'>
-      <input
-        className='nb-theme-toggler__checkbox'
-        type='checkbox'
-        onChange={onThemeChange}
-        defaultChecked={darkMode}
-      />
+      {loaded &&
+        <input
+          title='Change theme'
+          className='nb-theme-toggler__checkbox'
+          type='checkbox'
+          onChange={toggleTheme}
+          defaultChecked={darkMode}
+        />
+      }
     </div>
   );
 };

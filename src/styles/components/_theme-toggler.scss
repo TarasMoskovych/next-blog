@@ -1,10 +1,10 @@
 .nb-theme-toggler {
-  &__checkbox {
-    --size: 2rem;
-    --ray-size: calc(var(--size) * -0.4);
-    --offset-orthogonal: calc(var(--size) * 0.65);
-    --offset-diagonal: calc(var(--size) * 0.45);
+  --size: 2rem;
+  --ray-size: calc(var(--size) * -0.4);
+  --offset-orthogonal: calc(var(--size) * 0.65);
+  --offset-diagonal: calc(var(--size) * 0.45);
 
+  &__checkbox {
     appearance: none;
     border-radius: 999px;
     color: hsl(40, 100%, 50%);

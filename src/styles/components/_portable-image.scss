@@ -5,8 +5,9 @@
     img {
       border-radius: 8px;
       cursor: zoom-in;
+      filter: var(--image-filter);
       position: relative;
-      transition: 0.3s;
+      transition: 0.3s, filter 0s;
     }
   }
 

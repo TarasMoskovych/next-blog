@@ -1,7 +1,7 @@
 .nb-header {
-  background-color: var(--color-delta);
-  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 16%);
-  padding: 10px 25px;
+  background-color: var(--global-background-secondary-color);
+  box-shadow: var(--header-box-shadow);
+  padding: 10px 25px 14px 25px;
   position: fixed;
   width: 100%;
   z-index: 2;
@@ -10,9 +10,14 @@
     align-items: center;
     cursor: pointer;
     display: inline-flex;
+
+    svg {
+      fill: var(--global-text-inversed-color);
+    }
   }
 
   &__title {
+    color: var(--global-text-inversed-color);
     font-size: 1.8rem;
     font-weight: 600;
     margin-left: 10px;

@@ -1,11 +1,11 @@
 .nb-blog-detail {
 
   &__cover-image {
-    filter: brightness(0.85) !important;
+    filter: var(--cover-image-filter) !important;
   }
 
   &__title {
-    background: var(--color-delta);
+    background: #fff;
     border-radius: 5px;
     font-size: 1.8rem;
     left: 50%;
@@ -20,14 +20,15 @@
   }
 
   &__content-wrapper {
-    background-color: var(--color-delta);
-    box-shadow: var(--box-shadow-primary);
+    background-color: var(--card-background-color);
+    box-shadow: var(--card-box-shadow-default);
     margin-top: 25px;
     padding: 15px 25px;
   }
 
   &__created-by {
     align-items: center;
+    color: var(--global-text-inversed-color);
     display: flex;
     margin-top: 20px;
   }
@@ -50,6 +51,8 @@
   }
 
   &__content {
+    color: var(--global-text-inversed-color);
+
     h1,
     h2,
     h3,
@@ -70,7 +73,7 @@
         }
 
         &:hover {
-          color: #333;
+          color: #444;
         }
       }
     }
@@ -80,7 +83,7 @@
     }
 
     blockquote {
-      background-color: #F2F3F5;
+      background-color: var(--blockquote-background-color);
       border-radius: 8px;
       margin: 0;
       padding: 20px;
@@ -91,7 +94,7 @@
       border-radius: 8px;
 
       &:not(.hljs) {
-        background-color: #F2F3F5;
+        background-color: var(--blockquote-background-color);
         border-radius: 0;
       }
     }

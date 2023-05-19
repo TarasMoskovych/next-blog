@@ -20,12 +20,15 @@ const PageLayout = ({ children, className, title = 'Next Blog', scrollProgress =
         <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap' rel='stylesheet' />
         <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=swap' rel='stylesheet' />
       </Head>
-      <Header scrollProgress={scrollProgress} />
-      <main className={`nb-page-wrapper ${className || ''}`}>
-        {children}
-        <ScrollTopButton />
-      </main>
-      <Footer />
+      <div className='root'>
+        <Header scrollProgress={scrollProgress} />
+        <main className={`nb-page-wrapper ${className || ''}`}>
+          {children}
+          <ScrollTopButton />
+        </main>
+        <Footer />
+      </div>
+      <div className='theme-clipper' />
     </>
   );
 };

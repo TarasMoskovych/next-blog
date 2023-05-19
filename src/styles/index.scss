@@ -1,16 +1,42 @@
 @import "src/styles/components";
 @import "src/styles/pages";
 
-:root {
-  --color-alpha: #eee;
-  --color-beta: #ffb535;
-  --color-gamma: #363738;
-  --color-delta: #fff;
-  --color-epsilon: rgba(#333, 0.9);
-  --color-zeta: #ccc;
-  --color-eta: #000;
-  --card-img-height: 200px;
+.root {
+  --blockquote-background-color: #F2F3F5;
+  --card-background-color: #fff;
+  --card-box-shadow-default: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  --card-box-shadow-hover: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  --card-box-shadow-inner: none;
+  --card-box-shadow-outer: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  --card-oveflow-gradient: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.85) 85%,#fff 100%);
+  --cover-image-filter: brightness(0.85) grayscale(0);
+  --footer-box-shadow: 0 1px 4px 0 rgba(0 0 0 / 16%);
+  --global-background-color: #eee;
+  --global-background-secondary-color: #fff;
+  --global-text-inversed-color: #1c1b20;
+  --header-box-shadow: 0 2px 4px 0 rgb(0 0 0 / 16%);
+  --image-filter: grayscale(0);
+  --link-color: #3F51B5;
+  --link-hover-color: #0074de;
+  --svg-hover-color: #555;
 
-  --box-shadow-primary: 1px 1px 3px 0 rgb(0 0 0 / 20%);
-  --box-shadow-secondary: 1px 1px 3px 0 rgba(0, 0, 0, 0.2);
+  &.dark {
+    --blockquote-background-color: #1c1b20;
+    --card-background-color: #252630;
+    --card-box-shadow-default: inset -8px -8px 15px rgba(0, 0, 0, .5), inset 8px 8px 15px rgba(123, 123, 123, .12);
+    --card-box-shadow-hover: none;
+    --card-box-shadow-inner: inset -8px -8px 15px rgba(0, 0, 0, .5), inset 8px 8px 15px rgba(123, 123, 123, .12);
+    --card-box-shadow-outer: none;
+    --card-oveflow-gradient: linear-gradient(to bottom,rgba(37,38,48, 0) 0,rgba(37,38,48,.85) 85%,#252630 100%);
+    --cover-image-filter: brightness(0.85) grayscale(50%);
+    --footer-box-shadow: 0 20px 10px -20px rgba(0,0,0,0.5) inset;;
+    --global-background-color: #252630;
+    --global-background-secondary-color: #1c1b20;
+    --global-text-inversed-color: #ededef;
+    --header-box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.5) inset;
+    --image-filter: grayscale(50%);
+    --link-color: #0074de;
+    --link-hover-color: #3F51B5;
+    --svg-hover-color: #aaa;
+  }
 }

@@ -1,9 +1,14 @@
 import type { AppProps } from 'next/app';
+import ThemeProvider from 'src/providers/ThemeProvider';
 import 'highlight.js/styles/base16/darcula.css';
 import 'src/styles/index.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 };
 
 export default App;

@@ -11,7 +11,7 @@ const PortableImage = ({ value: { alt, asset, position = 'center' } }: any) => {
         <img
           onClick={onSetScale}
           ref={ref}
-          alt={alt}
+          alt={alt || ''}
           src={getImageUrl(asset).url()}
           style={{ maxWidth: '100%', maxHeight: 350 }}
         />
