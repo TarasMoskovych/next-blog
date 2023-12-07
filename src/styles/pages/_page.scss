@@ -66,6 +66,11 @@ ul {
   }
 }
 
+.hljs-copy-button {
+  cursor: pointer;
+  top: 8px;
+}
+
 @keyframes open {
   0% {
     top: 3rem;

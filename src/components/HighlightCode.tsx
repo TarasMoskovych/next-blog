@@ -12,7 +12,6 @@ const HighlightCode = ({ children, language, filename }: Props) => {
 
   useEffect(() => {
     if (code.current) {
-      highlight.configure({ ignoreUnescapedHTML: true });
       highlight.highlightElement(code.current);
     }
   }, [code]);
