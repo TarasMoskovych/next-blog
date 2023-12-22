@@ -24,7 +24,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
     await res.revalidate(pathToRevalidate);
     await res.revalidate('/');
-
     return res.status(200).json({ revalidated: true });
   } catch (err) {
     // Could not revalidate. The stale page will continue to be shown until
