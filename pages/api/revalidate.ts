@@ -10,41 +10,32 @@ type Data = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const signature = req.headers[SIGNATURE_HEADER_NAME] as string;
-  const body = await readBody(req);
-  const isValid = isValidSignature(body, signature, SANITY_WEBHOOK_SECRET);
+  const isValid = isValidSignature(JSON.stringify(req.body), signature, SANITY_WEBHOOK_SECRET);
+  const slug = req.body.slug;
+
+  console.log('===== isValidSignature =====', isValid);
 
   if (!isValid) {
     res.status(401).json({ revalidated: false, message: 'Invalid signature' });
     return;
   }
 
+  await revalidate('/', res);
+  await revalidate(`/blogs/${slug}`, res);
+
+  res.status(200).json({ revalidated: true });
+}
+
+const revalidate = async (path: string, res: NextApiResponse<Data>) => {
+  if (!path) {
+    return console.warn('===== No path to revalidate =====', path);
+  }
+
   try {
-    const pathToRevalidate = `/blogs/${JSON.parse(body).slug}`;
-    console.log(`===== Revalidating: ${pathToRevalidate}`);
-
-    await res.revalidate(pathToRevalidate);
-    await res.revalidate('/');
-    return res.status(200).json({ revalidated: true });
+    await res.revalidate(path);
+    console.log(`===== Revalidated: ${path} =====`);
   } catch (err) {
-    // Could not revalidate. The stale page will continue to be shown until
-    // this issue is fixed.
-    console.log(err);
-    return res.status(500).send({ message: 'Error while revalidating' });
+    console.error(`===== Error while revalidating: ${path} =====`);
+    res.status(500).send({ message: 'Error while revalidating' });
   }
-}
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
 };
-
-async function readBody(readable: any) {
-  const chunks = [];
-
-  for await (const chunk of readable) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
-  }
-
-  return Buffer.concat(chunks).toString('utf8');
-}
